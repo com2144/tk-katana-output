@@ -112,6 +112,8 @@ class AppDialog(QtGui.QWidget):
         
         if os.environ['REZ_KATANA_VERSION'] == "3.1v2":
             command = ['mate-terminal','-x','rez-env','katana-3.1v2','renderman-22','usd-19.03',"yeti",'--','katana']
+        elif os.environ['REZ_KATANA_VERSION'] == "3.6v2":
+            command = ['mate-terminal','-x','rez-env','katana-3.6v2','renderman-23.4','yeti','golaem-7.3.6','--','katana']
         else:
             command = ['mate-terminal','-x','rez-env','katana-2.6v4','renderman-21.8','usd-19.03','yeti-2.2.9','--','katana']
 
@@ -128,7 +130,7 @@ class AppDialog(QtGui.QWidget):
             command.append("--render-node=%s"%node.getName())
             command.append(str('--t=%s-%s'%(self.ui.start_frame.text(),self.ui.end_frame.text())))
         
-            print command       
+            print(command)       
 
             subprocess.Popen(command)
         self.close()
